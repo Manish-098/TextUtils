@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import TextForm from "./Components/TextForm";
 import Alert from "./Components/Alert";
@@ -33,7 +33,7 @@ function App() {
   };
 
   return (
-    <Router>
+    <HashRouter>
       <Navbar
         title="TextUtils"
         home="Home"
@@ -60,7 +60,7 @@ function App() {
         />
         <Route path="/about" element={<About mode={mode} />} />
       </Routes>
-    </Router>
+    </HashRouter>
   );
 }
 
