@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import TextForm from "./Components/TextForm";
 import Alert from "./Components/Alert";
-// import About from "./Components/About";
+import About from "./Components/About";
 
 function App() {
   const [mode, setMode] = useState("light");
@@ -23,69 +23,44 @@ function App() {
   const toggleMode = () => {
     if (mode === "light") {
       setMode("dark");
-      document.body.style.backgroundColor = "#28527cff";
+      document.body.style.backgroundColor = "#0d355e";
       showAlert("Light mode has been enabled", "success");
-      document.title = "TextUtils- Dark Mode";
-
-      // setInterval(() => {
-      //   document.title = "TextUtils is Amazing";
-      // }, 2000);
-
-      // setInterval(() => {
-      //   document.title = "Install TextUtils now";
-      // }, 3000);
     } else {
       setMode("light");
       document.body.style.backgroundColor = "white";
       showAlert("Dark mode has been enabled", "success");
-      document.title = "TextUtils- Light Mode";
-    }
-  };
-
-  const GreenMode = () => {
-    if (mode === "light") {
-      setMode("green");
-      document.body.style.backgroundColor = "#4e8242ff";
-      document.title = "TextUtils- Green Mode";
-    } else {
-      setMode("light");
-      document.body.style.backgroundColor = "white";
-      document.title = "TextUtils- Light Mode";
     }
   };
 
   return (
-    <>
-      {/* <Router> */}
+    <Router>
       <Navbar
         title="TextUtils"
         home="Home"
         about="About"
         mode={mode}
         toggleMode={toggleMode}
-        GreenMode={GreenMode}
       />
       <Alert alert={alert} />
-      <TextForm
+      {/* <TextForm
         showAlert={showAlert}
         heading="Enter the text blow"
         mode={mode}
-      />
-      {/* <Routes>
+      /> */}
+      <Routes>
         <Route
           path="/"
           element={
             <TextForm
               showAlert={showAlert}
-              heading="Enter the text blow"
+              heading="Try TextUtils- Word Counter, Character Counter, Remove Extra Spaces"
               mode={mode}
             />
           }
         />
-        <Route path="/about" element={<About />} />
-      </Routes> */}
-      {/* </Router> */}
-    </>
+        <Route path="/about" element={<About mode={mode} />} />
+      </Routes>
+    </Router>
   );
 }
 

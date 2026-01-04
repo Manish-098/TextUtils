@@ -1,10 +1,11 @@
 function TextSummary(props) {
-  let wordCount = props.text.split(" ");
+  let wordCount = props.text.split(/\s/);
   wordCount = wordCount.filter((value) => {
     return value.length !== 0;
   });
+  console.log(wordCount);
   let textCount = props.text.length;
-  let countTime = wordCount * 0.006;
+  let countTime = wordCount.length * 0.3;
   return (
     <>
       <div
@@ -17,7 +18,7 @@ function TextSummary(props) {
           <b>{wordCount.length}</b> Words <b>{textCount}</b> Characters{" "}
         </div>
         <div>
-          <b>{Math.round(countTime)} Minutes</b>
+          <b>{Math.floor(countTime)} Minutes</b>
         </div>
       </div>
     </>

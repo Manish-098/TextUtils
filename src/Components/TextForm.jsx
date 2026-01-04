@@ -14,7 +14,7 @@ function TextForm(props) {
         <div className="mb-3">
           <label htmlFor="myBox" className="form-label">
             <h1
-              className={`fw-bold text-${
+              className={`fs-4 fw-bold mb-4 text-${
                 props.mode === "light" ? "dark" : "light"
               }`}
             >
@@ -22,13 +22,16 @@ function TextForm(props) {
             </h1>
           </label>
           <textarea
-            className={`form-control overflow-auto bg-${
-              props.mode === "dark" ? "secondary" : "white"
-            } text-${props.mode === "light" ? "dark" : "light"}`}
+            className={`form-control overflow-auto text-${
+              props.mode === "light" ? "dark" : "light"
+            }`}
             value={Text}
             onChange={updateContent}
             id="myBox"
             rows="5"
+            style={{
+              backgroundColor: props.mode === "dark" ? "#154f89ff" : "white",
+            }}
           ></textarea>
         </div>
       </div>

@@ -1,16 +1,16 @@
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Navbar({ title, about, home, mode, toggleMode, GreenMode }) {
   return (
     <>
       <nav className={`navbar navbar-expand-lg navbar-${mode} bg-${mode} `}>
         <div className="container-fluid">
-          {/* <Link className="navbar-brand " to="/">
+          <Link className="navbar-brand " to="/">
             {title}
-          </Link> */}
-          <a className="navbar-brand " href="#">
+          </Link>
+          {/* <a className="navbar-brand " href="#">
             {title}
-          </a>
+          </a> */}
           {/* {props.title} */}
           <button
             className="navbar-toggler"
@@ -26,18 +26,17 @@ function Navbar({ title, about, home, mode, toggleMode, GreenMode }) {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0 ">
               <li className="nav-item ">
-                {/* <Link className="nav-link active " aria-current="page" to="/">
+                <Link className="nav-link active " aria-current="page" to="/">
                   {home}
-                </Link> */}
-                <a className="nav-link active " aria-current="page" href="#">
+                </Link>
+                {/* <a className="nav-link active " aria-current="page" href="#">
                   {home}
-                </a>
+                </a> */}
               </li>
               <li className="nav-item">
-                {/* <Link className="nav-link " to="/about"> 
-                    {about}
-                </Link> 
-                */}
+                <Link className="nav-link active " to="/about">
+                  {about}
+                </Link>
                 {/* <a className="nav-link " href="/about">
                   {about}
                 </a> */}
@@ -77,11 +76,13 @@ function Navbar({ title, about, home, mode, toggleMode, GreenMode }) {
                 type="checkbox"
                 id="flexSwitchCheckDefault"
                 onClick={toggleMode}
+                style={{ cursor: "pointer" }}
               />
               <label
                 className={`form-check-label text-${
                   mode === "light" ? "dark" : "light"
-                }`}
+                }  `}
+                style={{ cursor: "pointer" }}
                 htmlFor="flexSwitchCheckDefault"
               >
                 Enable {mode} Mode

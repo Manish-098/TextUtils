@@ -1,23 +1,33 @@
 import React, { useState } from "react";
 
-function About() {
-  // let myStyle = {
-  //   color: "black",
-  //   backgroundColor: "white",
-  //   border: "1px solid white",
-  // };
+function About({ mode }) {
+  let myStyle = {
+    color: mode === "dark" ? "white" : "black",
+    backgroundColor: mode === "dark" ? "#1c6bbaff" : "white",
+    fontSize: "20px",
+    // border: "1px solid white",
+  };
 
-  const [myStyle, setStyle] = useState({
-    color: "black",
-    backgroundColor: "white",
-    border: "1px solid white",
-  });
+  // const [myStyle, setStyle] = useState({
+  //   color: mode === "black" ? "white" : "black",
+  //   backgroundColor: mode === "black" ? "black" : "white",
+  //   // border: "1px solid white",
+  // });
 
   return (
     <>
-      <div className="container my-3 py-3" style={myStyle}>
-        <div className="accordion" id="accordionExample">
-          <div className="accordion-item">
+      <div className="container my-3 py-3" style={{ myStyle }}>
+        <h1
+          className="fw-bolder fs-2"
+          style={{
+            backgroundColor: mode === "dark" ? "#0d355e" : "white",
+            color: mode === "dark" ? "white" : "black",
+          }}
+        >
+          About Us
+        </h1>
+        <div className="accordion" id="accordionExample" style={myStyle}>
+          <div className="accordion-item" style={{ myStyle }}>
             <h2 className="accordion-header">
               <button
                 className="accordion-button"
@@ -28,13 +38,14 @@ function About() {
                 aria-controls="collapseOne"
                 style={myStyle}
               >
-                Analyze your text
+                <strong className="fs-4">Analyze your text</strong>
               </button>
             </h2>
             <div
               id="collapseOne"
               className="accordion-collapse collapse "
               data-bs-parent="#accordionExample"
+              style={myStyle}
             >
               <div className="accordion-body" style={myStyle}>
                 Textutils gives you a way to analyze your text quickly and
@@ -42,7 +53,7 @@ function About() {
               </div>
             </div>
           </div>
-          <div className="accordion-item">
+          <div className="accordion-item" style={{ myStyle }}>
             <h2 className="accordion-header">
               <button
                 className="accordion-button collapsed"
@@ -53,13 +64,14 @@ function About() {
                 aria-controls="collapseTwo"
                 style={myStyle}
               >
-                Free to use
+                <strong className="fs-4">Free to use</strong>
               </button>
             </h2>
             <div
               id="collapseTwo"
               className="accordion-collapse collapse"
               data-bs-parent="#accordionExample"
+              style={myStyle}
             >
               <div className="accordion-body" style={myStyle}>
                 TextUtils is a free character counter tool that provides instant
@@ -69,7 +81,7 @@ function About() {
               </div>
             </div>
           </div>
-          <div className="accordion-item">
+          <div className="accordion-item" style={{ myStyle }}>
             <h2 className="accordion-header">
               <button
                 className="accordion-button collapsed"
@@ -80,13 +92,14 @@ function About() {
                 aria-controls="collapseThree"
                 style={myStyle}
               >
-                Browser Compatible
+                <strong className="fs-4">Browser Compatible</strong>
               </button>
             </h2>
             <div
               id="collapseThree"
               className="accordion-collapse collapse"
               data-bs-parent="#accordionExample"
+              style={myStyle}
             >
               <div className="accordion-body" style={myStyle}>
                 This word counter software works in any web browsers such as

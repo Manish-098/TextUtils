@@ -1,4 +1,3 @@
-
 function Button({ text, setValue, showAlert }) {
   const changeUpperCase = () => {
     let newText = text.toUpperCase();
@@ -20,14 +19,13 @@ function Button({ text, setValue, showAlert }) {
       html2canvas: { scale: 2 },
       jsPDF: { unit: "in", format: "a4", orientation: "portrait" },
     };
+    //Text is a props which is hold textSelect value
     html2pdf().set(opt).from(text).save();
     showAlert("text converted into pdf", "success");
   };
 
   const handleCopy = () => {
-    let text = document.getElementById("myBox");
-    text.select();
-    navigator.clipboard.writeText(text.value);
+    navigator.clipboard.writeText(text);
     showAlert("Copied into clipboard", "success");
   };
 
@@ -46,22 +44,46 @@ function Button({ text, setValue, showAlert }) {
   return (
     <>
       <div className="container px-2 d-flex gap-2 ">
-        <button className="btn btn-primary" onClick={changeUpperCase}>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-primary"
+          onClick={changeUpperCase}
+        >
           Change to UpperCase
         </button>
-        <button className="btn btn-primary" onClick={changeLowerCase}>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-primary"
+          onClick={changeLowerCase}
+        >
           Change to LowerCase
         </button>
-        <button className="btn btn-primary" onClick={download}>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-primary"
+          onClick={download}
+        >
           Download in PDF
         </button>
-        <button className="btn btn-primary" onClick={handleCopy}>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-primary"
+          onClick={handleCopy}
+        >
           Copy Text
         </button>
-        <button className="btn btn-primary" onClick={handleRemoveExtraSpace}>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-primary"
+          onClick={handleRemoveExtraSpace}
+        >
           Extra Space
         </button>
-        <button className="btn btn-primary" onClick={clearText}>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-primary"
+          onClick={clearText}
+        >
           Clear Text
         </button>
       </div>
